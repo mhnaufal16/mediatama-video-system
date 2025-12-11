@@ -23,7 +23,7 @@ class AccessRequestController extends Controller
             $accessRequest->update([
                 'status' => 'approved',
                 'access_start_time' => now(),
-                'access_end_time' => now()->addHours($request->duration),
+                'access_end_time' => now()->addHours((int) $request->duration),
             ]);
         } else {
             $accessRequest->update([

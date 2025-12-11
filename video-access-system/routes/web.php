@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $videos = \App\Models\Video::with('category')->latest()->get();
+    return view('welcome', compact('videos'));
 });
 
 Route::get('/dashboard', function () {
@@ -21,7 +22,9 @@ require __DIR__.'/auth.php';
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/customers', [App\Http\Controllers\AdminController::class, 'index'])->name('customers.index');
+    Route::get('/customers/create', [App\Http\Controllers\AdminController::class, 'create'])->name('customers.create');
     Route::post('/customers', [App\Http\Controllers\AdminController::class, 'store'])->name('customers.store');
+    Route::get('/customers/{user}/edit', [App\Http\Controllers\AdminController::class, 'edit'])->name('customers.edit');
     Route::put('/customers/{user}', [App\Http\Controllers\AdminController::class, 'update'])->name('customers.update');
     Route::delete('/customers/{user}', [App\Http\Controllers\AdminController::class, 'destroy'])->name('customers.destroy');
 
