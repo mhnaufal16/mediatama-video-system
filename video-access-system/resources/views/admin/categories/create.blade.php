@@ -15,20 +15,20 @@
 
                         <!-- Name -->
                         <div>
-                            <x-input-label for="name" :value="__('Name')" />
-                            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+                            <x-input-label for="name" :value="__('Name')" class="text-gray-700 font-medium" />
+                            <x-text-input id="name" class="block mt-1 w-full rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500 bg-gray-50/50" type="text" name="name" :value="old('name')" required autofocus placeholder="Enter category name" />
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
 
                         <!-- Description -->
-                        <div class="mt-4">
-                            <x-input-label for="description" :value="__('Description')" />
-                            <textarea id="description" name="description" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="3">{{ old('description') }}</textarea>
+                        <div class="mt-6">
+                            <x-input-label for="description" :value="__('Description')" class="text-gray-700 font-medium" />
+                            <textarea id="description" name="description" class="block mt-1 w-full rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500 bg-gray-50/50 shadow-sm" rows="4" placeholder="Enter category description">{{ old('description') }}</textarea>
                             <x-input-error :messages="$errors->get('description')" class="mt-2" />
                         </div>
 
-                        <div class="flex items-center justify-end mt-4">
-                            <x-primary-button class="ml-4">
+                        <div class="flex items-center justify-end mt-8">
+                            <x-primary-button class="ml-4 bg-blue-600 hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 rounded-xl px-6 py-2.5 shadow-lg shadow-blue-600/30">
                                 {{ __('Create Category') }}
                             </x-primary-button>
                         </div>

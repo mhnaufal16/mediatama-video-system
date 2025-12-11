@@ -16,14 +16,16 @@ class AccessRequestController extends Controller
     {
         $request->validate([
             'status' => 'required|in:approved,rejected',
-            'duration' => 'nullable|integer|min:1', // Duration in hours, required if approved
+            'duration' => 'required_if:status,approved|integer|min:1',
         ]);
 
         if ($request->status === 'approved') {
+            $duration = (int) $request->input('duration', 2); // Default to 2 hours if missing
+            
             $accessRequest->update([
                 'status' => 'approved',
                 'access_start_time' => now(),
-                'access_end_time' => now()->addHours((int) $request->duration),
+                'access_end_time' => now()->addHours($duration),
             ]);
         } else {
             $accessRequest->update([

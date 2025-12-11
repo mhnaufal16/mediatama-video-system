@@ -14,22 +14,22 @@
 
                         <!-- Title -->
                         <div>
-                            <x-input-label for="title" :value="__('Title')" />
-                            <x-text-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title')" required autofocus />
+                            <x-input-label for="title" :value="__('Title')" class="text-gray-700 font-medium" />
+                            <x-text-input id="title" class="block mt-1 w-full rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500 bg-gray-50/50" type="text" name="title" :value="old('title')" required autofocus placeholder="Enter video title" />
                             <x-input-error :messages="$errors->get('title')" class="mt-2" />
                         </div>
 
                         <!-- URL -->
-                        <div class="mt-4">
-                            <x-input-label for="url" :value="__('Video URL')" />
-                            <x-text-input id="url" class="block mt-1 w-full" type="url" name="url" :value="old('url')" required />
+                        <div class="mt-6">
+                            <x-input-label for="url" :value="__('Video URL')" class="text-gray-700 font-medium" />
+                            <x-text-input id="url" class="block mt-1 w-full rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500 bg-gray-50/50" type="url" name="url" :value="old('url')" required placeholder="https://youtube.com/..." />
                             <x-input-error :messages="$errors->get('url')" class="mt-2" />
                         </div>
 
                         <!-- Category -->
-                        <div class="mt-4">
-                            <x-input-label for="category_id" :value="__('Category')" />
-                            <select id="category_id" name="category_id" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm">
+                        <div class="mt-6">
+                            <x-input-label for="category_id" :value="__('Category')" class="text-gray-700 font-medium" />
+                            <select id="category_id" name="category_id" class="block mt-1 w-full rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500 bg-gray-50/50 shadow-sm">
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                 @endforeach
@@ -38,14 +38,14 @@
                         </div>
 
                         <!-- Description -->
-                        <div class="mt-4">
-                            <x-input-label for="description" :value="__('Description')" />
-                            <textarea id="description" name="description" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" rows="3">{{ old('description') }}</textarea>
+                        <div class="mt-6">
+                            <x-input-label for="description" :value="__('Description')" class="text-gray-700 font-medium" />
+                            <textarea id="description" name="description" class="block mt-1 w-full rounded-xl border-gray-200 focus:border-blue-500 focus:ring-blue-500 bg-gray-50/50 shadow-sm" rows="4" placeholder="Enter video description">{{ old('description') }}</textarea>
                             <x-input-error :messages="$errors->get('description')" class="mt-2" />
                         </div>
 
-                        <div class="flex items-center justify-end mt-4">
-                            <x-primary-button class="ml-4">
+                        <div class="flex items-center justify-end mt-8">
+                            <x-primary-button class="ml-4 bg-blue-600 hover:bg-blue-700 focus:bg-blue-700 active:bg-blue-900 rounded-xl px-6 py-2.5 shadow-lg shadow-blue-600/30">
                                 {{ __('Create Video') }}
                             </x-primary-button>
                         </div>

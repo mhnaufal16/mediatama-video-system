@@ -9,7 +9,7 @@ class CustomerController extends Controller
     public function index()
     {
         $videos = \App\Models\Video::with(['category', 'accessRequests' => function ($query) {
-            $query->where('user_id', auth()->id());
+            $query->where('user_id', auth()->id())->latest();
         }])->get();
         return view('customer.videos.index', compact('videos'));
     }
