@@ -15,6 +15,25 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @if(Auth::user()->role === 'admin')
+                        <x-nav-link :href="route('admin.customers.index')" :active="request()->routeIs('admin.customers.*')">
+                            {{ __('Customers') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.*')">
+                            {{ __('Categories') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.videos.index')" :active="request()->routeIs('admin.videos.*')">
+                            {{ __('Videos') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('admin.access-requests.index')" :active="request()->routeIs('admin.access-requests.*')">
+                            {{ __('Requests') }}
+                        </x-nav-link>
+                    @else
+                        <x-nav-link :href="route('videos.index')" :active="request()->routeIs('videos.*')">
+                            {{ __('Videos') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -70,6 +89,25 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+
+            @if(Auth::user()->role === 'admin')
+                <x-responsive-nav-link :href="route('admin.customers.index')" :active="request()->routeIs('admin.customers.*')">
+                    {{ __('Customers') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.*')">
+                    {{ __('Categories') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.videos.index')" :active="request()->routeIs('admin.videos.*')">
+                    {{ __('Videos') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('admin.access-requests.index')" :active="request()->routeIs('admin.access-requests.*')">
+                    {{ __('Requests') }}
+                </x-responsive-nav-link>
+            @else
+                <x-responsive-nav-link :href="route('videos.index')" :active="request()->routeIs('videos.*')">
+                    {{ __('Videos') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
