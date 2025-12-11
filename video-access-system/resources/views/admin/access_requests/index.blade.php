@@ -47,6 +47,9 @@
                                                     
                                                     <!-- Duration Select -->
                                                     <select name="duration" class="text-sm border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 py-1 pl-2 pr-8" required>
+                                                        <option value="2">2 Hours</option>
+                                                        <option value="6">6 Hours</option>
+                                                        <option value="12">12 Hours</option>
                                                         <option value="24">24 Hours</option>
                                                         <option value="72">3 Days</option>
                                                         <option value="168">1 Week</option>

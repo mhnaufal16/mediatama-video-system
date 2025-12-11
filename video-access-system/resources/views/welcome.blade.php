@@ -31,7 +31,6 @@
                         <a href="{{ url('/dashboard') }}" class="text-sm font-medium text-gray-700 hover:text-blue-600">Dashboard</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm font-medium text-gray-700 hover:text-blue-600">Log In</a>
-                        <a href="{{ route('register') }}" class="px-5 py-2.5 text-sm font-medium bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all">Sign Up</a>
                     @endauth
                 </div>
             </div>
